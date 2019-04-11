@@ -1,0 +1,32 @@
+.home__wrapper {
+    display: grid;
+    grid-template-columns: minmax(0, 375px);
+    justify-content: center;
+    height: 540px;
+}
+
+.home__wrapper--border {
+    border: 2px solid;
+}
+
+.home__content{
+    padding: 10px;
+}
+
+.home__tab{
+    margin-bottom: 20px;
+}
+
+.home__user{
+    background: #1da1f2;
+    color: #fff;
+    padding: 10px;
+    border-radius: 4px;
+    display: inline-block;
+    margin: 2px;
+}
+
+.home__user a {
+    color: #fff;
+    text-decoration: none;
+}

@@ -7,10 +7,13 @@ class HeaderComponent extends Component {
     render() {
         const {header, to} = this.props;
         return (
-          <div>
-              <div> 
+          <div className="header">
+              <div className="header__wrapper"> 
                 {
-                  to && <Link to={to}> Back </Link>
+                  to && <Link to={to}> 
+                  <i className="fas fa-chevron-left"></i>
+                  Back
+                   </Link>
                 }
                 {
                   <div> {header} </div>

@@ -16,20 +16,26 @@ class HomeComponent extends Component {
     render() {
         const {topFive} = this.state;
         return (
-            <div>  
-                <HeaderComponent header = "Home"/>
-                <h2> Top 5 GitHub Users</h2>
-                <div> Tap the username to see more information</div>
-                {
-                    topFive && topFive.map((user, key) => {
-                        return (
-                            <div key={key} > 
-                                <Link to={`/user/:${user}`}> {user}</Link>
-                            </div>
-                        )
-                    })
-                }
+            <div className="home__wrapper">
+                <div className="home__wrapper--border">  
+                    <HeaderComponent header = "Home"/>
+                    <div className="home__content">
+                        <h2 className="home__header"> Top 5 GitHub Users</h2>
+                        <div className="home__tab"> Tap the username to see more information</div>
+                        {
+                            topFive && topFive.map((user, key) => {
+                                return (
+                                    <div key={key} className="home__user"> 
+                                        <Link to={`/user/:${user}`}> {user}</Link>
+                                    </div>
+                                )
+                            })
+                        }
+                    </div>
+                    
+                </div>
             </div>
+            
         );
     }
 }

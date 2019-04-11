@@ -14,9 +14,11 @@ class UserComponent extends Component {
 
     componentWillMount() {
        const params = queryString.parse(this.props.location.search);
+       const thisClass = this; 
        axios.get(`https://api.github.com/users/${params.userName}`)
        .then(function (response) {
-           this.setState({userData:response.data});
+            thisClass.setState({userData:response.data});
+            console.log(response.data);
        })
        .catch(function (error) {
            console.log(error);
@@ -26,18 +28,24 @@ class UserComponent extends Component {
     render() {
         const {userData} = this.state;
         return (
-            <div> 
-                <HeaderComponent header = "Person" to = "/" />
-                {
-                    userData && (
-                        <div>
-                            <div>{userData.name} </div>
-                            <div>{userData.avatar_url} </div>
-                            <div>{userData.location} </div>
-                        </div>
-                    ) 
-                }
+            <div className="user__wrapper">
+                <div className="user__wrapper--border"> 
+                    <HeaderComponent header = "Person" to = "/" />
+                    {
+                        userData && (
+                            <div className="user__content">
+                                <img src={userData.avatar_url} alt = ""/>
+                                <div>
+                                    <div className="user__name">{userData.name} </div>
+                                    <div className="user__location">{userData.location || "_"} </div>
+                                </div>
+                                
+                            </div>
+                        ) 
+                    }
+                </div>
             </div>
+            
         );
     }
 }
