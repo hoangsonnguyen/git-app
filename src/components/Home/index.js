@@ -26,7 +26,7 @@ class HomeComponent extends Component {
                             topFive && topFive.map((user, key) => {
                                 return (
                                     <div key={key} className="home__user"> 
-                                        <Link to={`/user/:${user}`}> {user}</Link>
+                                        <Link to={`/user/${user}`}> {user}</Link>
                                     </div>
                                 )
                             })

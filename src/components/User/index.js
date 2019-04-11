@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import './styles.css' ;
 import axios from "axios";
-import queryString from 'query-string';
 import HeaderComponent from '../Header';
 
 class UserComponent extends Component {
@@ -13,7 +12,7 @@ class UserComponent extends Component {
     }
 
     componentWillMount() {
-       const params = queryString.parse(this.props.location.search);
+       const params = this.props.match.params;
        const thisClass = this; 
        axios.get(`https://api.github.com/users/${params.userName}`)
        .then(function (response) {
