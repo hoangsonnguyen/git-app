@@ -29,7 +29,13 @@ class UserComponent extends Component {
             <div> 
                 <HeaderComponent header = "Person" to = "/" />
                 {
-                    userData && userData.name
+                    userData && (
+                        <div>
+                            <div>{userData.name} </div>
+                            <div>{userData.avatar_url} </div>
+                            <div>{userData.location} </div>
+                        </div>
+                    ) 
                 }
             </div>
         );
